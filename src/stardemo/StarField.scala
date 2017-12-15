@@ -10,7 +10,7 @@ import java.awt.image.BufferedImage
 class StarField(val width: Int, val height: Int) extends BoxPanel(Orientation.Horizontal) with Animation {
   
   val viewportSlider = new Slider {
-    min = 0
+    min = 1
     max = 200
     majorTickSpacing = 50
     minorTickSpacing = 5
@@ -63,19 +63,20 @@ class StarField(val width: Int, val height: Int) extends BoxPanel(Orientation.Ho
       
       g.setColor(Color.black)
       g.fillRect(0, 0, size.width, size.height)
+      g.rotate(-time / 750.0, size.width / 2, size.height / 2)
       
       stars.foreach(drawStar(_, g))
     }
   }
   
-  contents += controls
+  //contents += controls
   contents += content
 
-  val viewport = new Viewport(100)
+  val viewport = new Viewport(150)
   var spawnz = -200
   var radius = 2
   var spawnSize = 1000
-  var maxStars = 10
+  var maxStars = 25
   
   viewportSlider.value = viewport.distance.toInt
   spawnzSlider.value = spawnz
@@ -103,6 +104,7 @@ class StarField(val width: Int, val height: Int) extends BoxPanel(Orientation.Ho
     canvasPos.foreach(point => {
       g.setColor(s.color)
       g.fillOval(point.x.toInt, point.y.toInt, radius, radius)
+
     })
     
   }
@@ -130,6 +132,6 @@ class StarField(val width: Int, val height: Int) extends BoxPanel(Orientation.Ho
 }
 
 
-class Star(var pos: Coordinate, var color: Color = Color.white) {
+class Star(var pos: Coordinate, var color: Color = new Color(191, 242, 255)) {
   
 }

@@ -26,10 +26,10 @@ class Viewport(var distance: Double, val width: Double = StarDemo.WIDTH, val hei
   def y = pos.y
   def z = pos.z
   
-  def pointOutOfBounds(point: Coordinate) = point.x > (pos.x + width/2)  || 
-                                            point.x < (pos.x - width/2)  ||
-                                            point.y > (pos.y + height/2) ||
-                                            point.y < (pos.y - height/2)
+  def pointOutOfBounds(point: Coordinate) = point.x > (pos.x + width)  || 
+                                            point.x < (pos.x - width)  ||
+                                            point.y > (pos.y + height) ||
+                                            point.y < (pos.y - height)
   
   def canvasPoint(point: Coordinate) = new Coordinate(width/2 + point.x, height/2 + point.y, point.z)
   
