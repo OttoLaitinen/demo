@@ -90,8 +90,8 @@ class StarField(val width: Int, val height: Int) extends BoxPanel(Orientation.Ho
       /*Some values*/
       val spinSpeed = 1.0 / 750
       val picScale = 800.0 / time
-      val xSpeed = time / 200.0
-
+      val xSpeed = time / 750.0 //The best experience is achieved if matches spinSpeed (Here: 750.0). 
+                                //FOR DEMONSTRATION OF THIS EFFECT USE 200.0 OR LOWER
       /*Spinning effect*/
       if (spinDirection) {
         offSet -= spinSpeed
@@ -111,7 +111,7 @@ class StarField(val width: Int, val height: Int) extends BoxPanel(Orientation.Ho
       /*Values for drawing the Falcon and making it move*/
       val wantedWidth = (milleniumFalcon.getWidth * (picScale)).toInt
       val wantedHeight = (milleniumFalcon.getHeight * (picScale)).toInt
-      val xPosition = ((size.width / 2) + (wantedWidth / 4.0) * sin(xSpeed)).toInt - wantedWidth / 2
+      val xPosition = ((size.width / 2) + (wantedWidth / 2.0) * sin(xSpeed)).toInt - wantedWidth / 2
       val yPosition = size.height / 2 - wantedHeight / 2
 
       /*Drawing falcon*/

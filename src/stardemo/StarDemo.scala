@@ -5,12 +5,13 @@ import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 
 object StarDemo extends SimpleSwingApplication {
+  
+  /*TURN YOUR VOLUME UP*/
 
   val WIDTH = 1920
   val HEIGHT = 1080
 
   val starfield = new StarField(WIDTH, HEIGHT)
-  val superCube = new Cube2(10, WIDTH, HEIGHT)
 
   def top = new MainFrame {
     contents =    starfield 
