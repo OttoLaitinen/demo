@@ -14,7 +14,8 @@ import javax.imageio.ImageIO
 import java.awt.geom.AffineTransform
 
 class StarField(val width: Int, val height: Int) extends BoxPanel(Orientation.Horizontal) with Animation {
-
+  private var offSet = 0.0
+  private var spinDirection = true
   val viewportSlider = new Slider {
     min = 1
     max = 200
@@ -60,7 +61,6 @@ class StarField(val width: Int, val height: Int) extends BoxPanel(Orientation.Ho
     contents += new Label("Max stars")
     contents += maxstarsSlider
   }
-  //"/img/milleniumrenderback.png"
   var milleniumFalcon: BufferedImage = _
   milleniumFalcon = ImageIO.read(new File("img/millenniumrenderback.png"))
 
@@ -69,14 +69,21 @@ class StarField(val width: Int, val height: Int) extends BoxPanel(Orientation.Ho
 
     override def paintComponent(g: Graphics2D) = {
       g.clearRect(0, 0, size.width, size.height)
-
       g.setColor(Color.black)
       g.fillRect(0, 0, size.width, size.height)
-      g.rotate(-time / 750.0, size.width / 2, size.height / 2)
-
+      if (spinDirection){
+        offSet -= 1.0/750
+      }else {
+        offSet += 1.0/750
+      }
+      g.rotate(offSet, size.width / 2, size.height / 2)
+      if(offSet > Pi/6){
+        spinDirection = true
+      }else if(offSet< -Pi/6){
+        spinDirection = false
+      }
       stars.foreach(drawStar(_, g))
-      
-      
+
       g.drawImage(milleniumFalcon, size.width / 2 - milleniumFalcon.getWidth / 2, size.height / 2 - milleniumFalcon.getHeight / 2, null)
 
     }
@@ -123,7 +130,6 @@ class StarField(val width: Int, val height: Int) extends BoxPanel(Orientation.Ho
 
       })
     })
-    
 
   }
 
