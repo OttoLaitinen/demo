@@ -90,8 +90,7 @@ class StarField(val width: Int, val height: Int) extends BoxPanel(Orientation.Ho
       /*Some values*/
       val spinSpeed = 1.0 / 750
       val picScale = 800.0 / time
-      val xSpeed = time / 750.0 //The best experience is achieved if matches spinSpeed (Here: 750.0). 
-                                //FOR DEMONSTRATION OF THIS EFFECT USE 200.0 OR LOWER
+      val xSpeed = time / 750.0 
       /*Spinning effect*/
       if (spinDirection) {
         offSet -= spinSpeed
