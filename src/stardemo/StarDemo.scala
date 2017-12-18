@@ -11,22 +11,25 @@ object StarDemo extends SimpleSwingApplication {
   val superCube = new Cube2(10, WIDTH, HEIGHT)
 
   def top = new MainFrame {
-    contents = starfield
+    contents =    starfield 
+    
   }
 
   override def main(args: Array[String]) = {
     super.main(args)
 
     while (true) {
-      //if (starfield.time < 1000) {
+//      if (starfield.time < 1000) {
         starfield.tick()
         starfield.render()
         Thread.sleep(5)
-//     // } else {
+//      } else {
+//        
+//        //startup(args: Array[String])
 //        superCube.tick()
 //        superCube.render()
 //        Thread.sleep(5)
-//        println("here")
+//
 //      }
 
     }
