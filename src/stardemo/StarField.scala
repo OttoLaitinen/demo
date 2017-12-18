@@ -11,7 +11,11 @@ import java.awt.Graphics
 import java.io.File
 import java.io.IOException
 import javax.imageio.ImageIO
-import java.awt.geom.AffineTransform
+
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
+import javax.sound.sampled.AudioInputStream
+import javax.sound.sampled.AudioSystem
 
 class StarField(val width: Int, val height: Int) extends BoxPanel(Orientation.Horizontal) with Animation {
   private var offSet = 0.0
@@ -71,20 +75,29 @@ class StarField(val width: Int, val height: Int) extends BoxPanel(Orientation.Ho
       g.clearRect(0, 0, size.width, size.height)
       g.setColor(Color.black)
       g.fillRect(0, 0, size.width, size.height)
-      if (spinDirection){
-        offSet -= 1.0/750
-      }else {
-        offSet += 1.0/750
+
+      if (spinDirection) {
+        offSet -= 1.0 / 750
+      } else {
+        offSet += 1.0 / 750
       }
       g.rotate(offSet, size.width / 2, size.height / 2)
-      if(offSet > Pi/6){
+      if (offSet > Pi / 6) {
         spinDirection = true
-      }else if(offSet< -Pi/6){
+      } else if (offSet < -Pi / 6) {
         spinDirection = false
       }
       stars.foreach(drawStar(_, g))
-
-      g.drawImage(milleniumFalcon, size.width / 2 - milleniumFalcon.getWidth / 2, size.height / 2 - milleniumFalcon.getHeight / 2, null)
+      
+      val wantedWidth = (milleniumFalcon.getWidth * (800.0 / time)).toInt
+      val wantedHeight = (milleniumFalcon.getHeight * (800.0 / time)).toInt
+      g.drawImage(
+        milleniumFalcon,
+        size.width / 2 - wantedWidth / 2,
+        size.height / 2 - wantedHeight / 2,
+        wantedWidth,
+        wantedHeight,
+        null)
 
     }
   }
@@ -147,11 +160,21 @@ class StarField(val width: Int, val height: Int) extends BoxPanel(Orientation.Ho
 
     stars.foreach(_.pos.z += 1)
     stars = stars.filter(s => s.pos.z < 0 /* && camera.pointOnViewport(s.pos, viewport).isDefined*/ )
+    
   }
 
   def render() = {
     content.repaint()
   }
+
+  private def playMusic() {
+      val audioInputStream = AudioSystem.getAudioInputStream(new File("img/Star Wars Millenium Falcon Theme.wav").getAbsoluteFile());
+      val clip = AudioSystem.getClip();
+      clip.open(audioInputStream);
+      clip.start();
+
+  }
+  playMusic()
 
 }
 

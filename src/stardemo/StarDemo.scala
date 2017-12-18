@@ -1,6 +1,8 @@
 package stardemo
 
 import scala.swing._
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 
 object StarDemo extends SimpleSwingApplication {
 
@@ -19,18 +21,13 @@ object StarDemo extends SimpleSwingApplication {
     super.main(args)
 
     while (true) {
-//      if (starfield.time < 1000) {
+      if (starfield.time < 18800) {
         starfield.tick()
         starfield.render()
         Thread.sleep(5)
-//      } else {
-//        
-//        //startup(args: Array[String])
-//        superCube.tick()
-//        superCube.render()
-//        Thread.sleep(5)
-//
-//      }
+      } else {
+        quit()
+      }
 
     }
   }
