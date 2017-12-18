@@ -89,7 +89,7 @@ class StarField(val width: Int, val height: Int) extends BoxPanel(Orientation.Ho
 
       /*Some values*/
       val spinSpeed = 1.0 / 750
-      val picScale = 800.0 / time
+      val picScale = 1200.0 / time
       val xSpeed = time / 750.0 
       /*Spinning effect*/
       if (spinDirection) {
@@ -169,6 +169,8 @@ class StarField(val width: Int, val height: Int) extends BoxPanel(Orientation.Ho
 
   def tick() = {
     time += 1 //Used for tick counting
+    println(time)
+    if (time == 670) playMusic("img/FalconTheme.wav")
 
     /*Sliders for testing*/
     viewport.distance = viewportSlider.value
@@ -195,13 +197,14 @@ class StarField(val width: Int, val height: Int) extends BoxPanel(Orientation.Ho
 
   /*Made as a method for easier testing--
    * Plays music*/
-  private def playMusic() {
-    val audioInputStream = AudioSystem.getAudioInputStream(new File("img/Star Wars Millenium Falcon Theme.wav").getAbsoluteFile());
+  private def playMusic(path: String) {
+    val audioInputStream = AudioSystem.getAudioInputStream(new File(path).getAbsoluteFile());
     val clip = AudioSystem.getClip();
     clip.open(audioInputStream);
     clip.start();
   }
-  playMusic()
+  playMusic("img/FalconFlyBy.wav")
+    
 
 }
 

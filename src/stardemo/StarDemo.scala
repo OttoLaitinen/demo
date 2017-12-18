@@ -23,7 +23,7 @@ object StarDemo extends SimpleSwingApplication {
     super.main(args)
 
     while (true) {
-      if (starfield.time < 18800) {
+      if (starfield.time < 17500) {
         starfield.tick()
         starfield.render()
         Thread.sleep(5)
