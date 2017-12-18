@@ -169,7 +169,7 @@ class StarField(val width: Int, val height: Int) extends BoxPanel(Orientation.Ho
 
   def tick() = {
     time += 1 //Used for tick counting
-    println(time)
+    
     if (time == 670) playMusic("img/FalconTheme.wav")
 
     /*Sliders for testing*/
