@@ -16,5 +16,5 @@ Run this demo by running the `StarDemo` file
  ## Video of the demo  
  You can click the picture below to watch a video of the demo with sound  
  
-[![StarDemo](https://img.youtube.com/vi/y-vHTrDuJOfpY/0.jpg)](https://www.youtube.com/watch?v=y-vHTrDuJOfpY "StarDemo")
+[![StarDemo](https://img.youtube.com/vi/vHTrDuJOfpY/0.jpg)](https://www.youtube.com/watch?v=vHTrDuJOfpY "StarDemo")
 
