@@ -13,5 +13,5 @@ Run this demo by running the `StarDemo` file
  * The Millenium Falcon used in this demo is by [Chris Howl](https://howlmodelinganimationandgames.wordpress.com/2015/08/24/millennium-falcon-now-textured/)
  * Music is from the *Episode IV New Hope* and to be more specific [this](https://www.youtube.com/watch?v=IaBbM7H2dW8) youtube-video.
  
- ## Gif of the demo  
- ![](stardemo.gif)
+ ## Video of the demo  
+ [![](https://img.youtube.com/vi/https://youtu.be/y-pd6mjWDVQ/0.jpg)](https://www.youtube.com/watch?v=https://youtu.be/y-pd6mjWDVQ)
