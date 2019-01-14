@@ -14,7 +14,7 @@ Run this demo by running the `StarDemo` file
  * Music is from the *Episode IV New Hope* and to be more specific [this](https://www.youtube.com/watch?v=IaBbM7H2dW8) youtube-video.
  
  ## Video of the demo  
- You can click the picture below to watch a short preview of the demo without the sound  
+ You can click the picture below to watch a video of the demo with sound  
  
-[![StarDemo](https://img.youtube.com/vi/y-pd6mjWDVQ/0.jpg)](https://www.youtube.com/watch?v=y-pd6mjWDVQ-Y "StarDemo")
+[![StarDemo](https://img.youtube.com/vi/y-vHTrDuJOfpY/0.jpg)](https://www.youtube.com/watch?v=y-vHTrDuJOfpY "StarDemo")
 
